@@ -3,9 +3,9 @@ pipeline {
 
     environment {
         // Replace with Docker registry credentials ID
-        DOCKER_CREDENTIALS_ID = 'c1e3bfbb-72bb-4c9a-b463-d3150c300d9a'
+        DOCKER_CREDENTIALS_ID = 'da09b43e-2cec-4582-9f02-779eb83d2a09'
         // Replace with your Docker image repository name
-        IMAGE_NAME = 'chandrautl/react:1.0'
+        IMAGE_NAME = 'chandrautl/react'
         // The branch to build from (e.g., 'main', 'develop')
         GIT_BRANCH = 'master'
     }
@@ -20,15 +20,18 @@ pipeline {
         
         stage('Install Dependencies') {
             steps {
-                // Install npm dependencies
-                sh 'npm install'
+				script {
+					docker.image('node:16').inside {
+                        sh 'npm install'
             }
         }
         
         stage('Build React App') {
             steps {
-                // Build the React app for production
-                sh 'npm run build'
+				script {
+					docker.image('node:16').inside {
+					// Build the React app for production
+						sh 'npm run build'
             }
         }
         
