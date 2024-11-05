@@ -1,5 +1,5 @@
 pipeline {
-    agent any
+    agent { docker { image 'node:16' } } // Use Node.js image for the entire pipeline
 
     environment {
         // Replace with Docker registry credentials ID
