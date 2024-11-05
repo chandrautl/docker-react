@@ -19,6 +19,9 @@ pipeline {
         }
         
         stage('Install Dependencies') {
+			agent {
+                docker { image 'node:14' } // Use a Node.js image for this stage
+            }
             steps {
                 // Install npm dependencies
                 sh 'npm install'
