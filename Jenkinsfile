@@ -3,7 +3,7 @@ pipeline {
 
     environment {
         // Replace with Docker registry credentials ID
-        DOCKER_CREDENTIALS_ID = 'da09b43e-2cec-4582-9f02-779eb83d2a09'
+        DOCKER_CREDENTIALS_ID = '49797223-5f64-4bc2-beb9-40644954b28c'
         // Replace with your Docker image repository name
         IMAGE_NAME = 'chandrautl/react'
         // The branch to build from (e.g., 'main', 'develop')
