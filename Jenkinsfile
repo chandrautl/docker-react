@@ -23,6 +23,8 @@ pipeline {
 				script {
 					docker.image('node:16').inside {
                         sh 'npm install'
+					}
+				}
             }
         }
         
@@ -32,6 +34,8 @@ pipeline {
 					docker.image('node:16').inside {
 					// Build the React app for production
 						sh 'npm run build'
+					}
+				}
             }
         }
         
